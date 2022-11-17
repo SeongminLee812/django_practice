@@ -22,8 +22,8 @@ print(text)
 def solution(input_str):
 	# 각 숫자 있나 확인부터
 	compare_list = ['0', '1', '2' , '3', '4', '5', '6', '7', '8', '9']
+	result_list = []
 	for string in compare_list:
-		result_list = []
 		if string not in input_str:
 			result_list.append(string)
 	return result_list
@@ -33,3 +33,20 @@ input_str2 = '48750219'
 print(solution(input_str1), ", ", solution(input_str2))
 
 # %%
+
+# 실전예제 1-3 숫자 제외하기
+# 숫자와 문자가 섞인 문자열 입력에서 숫자를 제외하고 문자만 남게해서 반환하자.
+
+def solution(input_str):
+	answer = ""
+	for string in input_str:
+		if not string.isdigit():
+			answer = answer + string
+	return answer
+
+input_str1 = 'H123e4l5l6o7, p8y9t0h23o1n'
+
+print(solution((input_str1)))
+
+# %%
+
