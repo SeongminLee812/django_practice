@@ -50,3 +50,28 @@ print(solution((input_str1)))
 
 # %%
 
+# 실전예제 1-4 문자열 횟수 세기
+
+'''알파벳으로 구성된 입력 문자열에서 각각의 알파벳이 등장한 횟수를 세어 해당 알파벳 + 해당 알파벳이 나온 횟수'
+형태로 반환해 보자. 이때 알파벳은 정렬해서 반환한다.
+예를 들어, 입력 "aaabbccd"는 "a3b2c2d1"로 반환하면 된다.'''
+from string import ascii_lowercase
+
+def solution(input_str):
+	answer = ""
+	alphabet_list = list(ascii_lowercase)
+	num_list = [0 for _ in alphabet_list]
+	print(alphabet_list)
+	print(num_list)
+	input_dict = dict(zip(alphabet_list, [0 for _ in alphabet_list]))
+	
+	for i in input_str:
+		input_dict[i] += 1
+	input_str = list(set(input_str))
+	input_str.sort()
+	
+	for i in input_str:
+		answer = answer + i + str(input_dict[i])
+	return answer
+
+print(solution('aabbccdd')+ '\n' + solution('aabcdabbfweeaddfadf'))
