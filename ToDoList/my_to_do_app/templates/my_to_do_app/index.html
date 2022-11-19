@@ -28,6 +28,10 @@
             height:10%;
             color:gray;
         }
+        nav {
+            display: inline-block;
+            float: right;
+        }
     </style>
 
     <title>To-Do</title>
@@ -58,7 +62,7 @@
                     {% if todo.isDone == False %}
                     <form action="./doneTodo/" method="GET">
                         <div class="input-group" name='todo1'>
-                            <li class="list-group-item">{{ todo.content }}</li>
+                            <li class="list-group-item">{{ todo.content }}       <nav>{{ todo.create_time|date:"y-m-d" }}</nav></li>
                             <input type="hidden" id="todoNum" name="todoNum" value="{{todo.id}}"></input>
 
                             <span class="input-group-addon">
